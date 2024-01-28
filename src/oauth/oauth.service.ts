@@ -21,4 +21,11 @@ export class OAuthService {
     }
     return client;
   }
+
+  async generateAuthorizationCode (client_id, user_email, redirect_uri, scope){
+
+
+
+    return "authCode"
+  } 
 }
