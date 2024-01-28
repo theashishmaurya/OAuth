@@ -7,10 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
 import { JwtModule } from '@nestjs/jwt';
-import { OauthModule } from './oauth/oauth.module';
+import { OAuthModule } from './oauth/oauth.module';
 import { Client } from './client/client.entity';
-import { ClientController } from './client/client.controller';
-import { ClientsService } from './client/client.service';
 import { ClientModule } from './client/client.module';
 
 @Module({
@@ -19,6 +17,10 @@ import { ClientModule } from './client/client.module';
     AuthModule,
     JwtModule,
     ClientModule,
+    OAuthModule,
+    // ServeStaticModule.forRoot({
+    //     rootPath: join(__dirname, '..', 'client'),
+    // }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
       database: 'database/database.db', // Update with the path to your SQLite DB file
@@ -27,6 +29,6 @@ import { ClientModule } from './client/client.module';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, AuthService],
+  providers: [AppService],
 })
 export class AppModule {}

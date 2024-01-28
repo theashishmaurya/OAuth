@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Req, Res } from '@nestjs/common';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 
 @Controller('oauth')
 export class OAuthController {
@@ -10,6 +10,7 @@ export class OAuthController {
     // Here, instead of directly handling the authentication,
     // render an HTML form for the user to input their credentials
     response.render('auth-form', { client_id, redirect_uri, scope, state });
+
   }
 
   @Get('callback')

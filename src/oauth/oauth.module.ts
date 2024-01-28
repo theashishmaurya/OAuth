@@ -1,7 +1,12 @@
 import { Module } from '@nestjs/common';
-import { OauthService } from './oauth.service';
+import { OAuthService } from './oauth.service';
+import { OAuthController } from './oauth.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Client } from 'src/client/client.entity';
 
 @Module({
-  providers: [OauthService],
+  imports : [TypeOrmModule.forFeature([Client])],
+  providers: [OAuthService],
+  controllers:[OAuthController]
 })
-export class OauthModule {}
+export class OAuthModule {}
