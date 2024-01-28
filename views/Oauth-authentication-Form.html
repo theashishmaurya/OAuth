@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticate</title>
+</head>
+<body>
+    <form action="/authenticate" method="post">
+        <input type="hidden" name="client_id" value="{{client_id}}">
+        <input type="hidden" name="redirect_uri" value="{{redirect_uri}}">
+        <input type="hidden" name="scope" value="{{scope}}">
+        <input type="hidden" name="state" value="{{state}}">
+        
+        <label for="user_id">User ID:</label>
+        <input type="text" id="user_id" name="user_id">
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+
+        <button type="submit">Sign In</button>
+      </form>
+    
+</body>
+</html>
