@@ -2,6 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Client } from '../client/client.entity';
+import { randomBytes } from 'crypto';
 
 @Injectable()
 export class OAuthService {
@@ -22,10 +23,11 @@ export class OAuthService {
     return client;
   }
 
-  async generateAuthorizationCode (client_id, user_email, redirect_uri, scope){
+  async generateAuthorizationCode(client_id, user_email, redirect_uri, scope) {
+    const code = randomBytes(16).toString('hex'); // Generates a 32-character hexadecimal string
 
+    // TODO: Save the authorization code to the in-memory store
 
-
-    return "authCode"
-  } 
+    return code;
+  }
 }
