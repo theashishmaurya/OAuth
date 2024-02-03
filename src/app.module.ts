@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
@@ -10,7 +9,6 @@ import { JwtModule } from '@nestjs/jwt';
 import { OAuthModule } from './oauth/oauth.module';
 import { Client } from './client/client.entity';
 import { ClientModule } from './client/client.module';
-
 @Module({
   imports: [
     UsersModule,
